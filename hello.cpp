@@ -8,7 +8,6 @@ int main(){
     cin>>b;
     cout<<"Enter the value of c: "<<endl;
     cin>>c;
-
     if(a>b && a>c){
         cout<< a <<" is the greatest number among "<< b <<" and "<< c <<endl;
     }else if(b>a && b>c){
