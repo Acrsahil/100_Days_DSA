@@ -2,8 +2,8 @@
 using namespace std;
 
 int main(){
-    int a;
-    cin>>a;
-    cout<<(a<<1)<<endl;
+    int num = 3;
+    cout<< (25*(++num))<<endl;
+
     return 0;
 }
