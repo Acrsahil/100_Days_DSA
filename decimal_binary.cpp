@@ -11,9 +11,9 @@ int main() {
   int ans = 0;
   int i = 0;
   while(n != 0){
-        int bit = n&1;
+        int bit = n&1; // only true if n is odd
         ans = (bit * pow(10,i))+ans;
-        n = n>>1;
+        n = n>>1; // divid n by 2 each
         i++;
         cout<<bit<<endl;
   }
