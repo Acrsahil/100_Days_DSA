@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.tcc": "c",
+        "numeric": "c",
+        "streambuf": "c",
+        "tuple": "c"
+    }
+}
