@@ -8,7 +8,7 @@ void printMax(int arr[] , int size){
             max = arr[i];
         }
     }
-    cout<<"Max: "<<max<<endl; 
+    cout<<"Max: "<<max<<endl;
 }
 void printMin(int arr[] , int size){
     int min = arr[0];
