@@ -17,8 +17,9 @@ int occurance(int arr[],int n, int key){
         else if(key<arr[mid]){
             e = mid - 1;
         }
-        mid = s+(e-s)/2;
+        mid = s+(e-s)/2; 
     }
+    cout<<mid<<endl;
     return ans;
 }
 int last_occ(int arr[],int n, int key){
@@ -42,14 +43,22 @@ int last_occ(int arr[],int n, int key){
     }
     return ans;
 }
+int numoccurance(int first, int last,int key){
+int ans = last - first +1;
+return ans;
+}
 
 int main(){
     int arr[7] = {1,2,4,5,5,8,12};
     int n = 7;
-    int key = 5;
-    int ans = occurance(arr,n,key);
+    int key = 8;
+    int fst = occurance(arr,n,key);
     int lst = last_occ(arr,n,key);
-    cout<<"The 1st occurance of the key is "<<ans<<" index "<<endl;
+    cout<<"The 1st occurance of the key is "<<fst<<" index "<<endl;
     cout<<"The last occurance of the key is "<<lst<<" index "<<endl;
+    int answer = (lst-fst)+1;
+    cout<<"The number of occurance of the  "<<key<<" in the array is "<<answer<<endl;
+
+
     return 0;
 }
