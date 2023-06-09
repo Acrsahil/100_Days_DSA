@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
 int modularExponentiation(int x, int n, int m) {
-	long long ans = 1;
+	long long ans = 1; 
 	while (n > 0) {
 		if (n & 1) {
-			ans = (1LL*(ans) * x % m) % m;
+			ans = (1LL*(ans) * x % m) % m; // using mudulo to ruduce size of the digit LL* -> typecasting to long long
 		}
 		x = (1LL*(x) % m * (x) % m) % m;
-		n = n >> 1;
+		n = n >> 1; // n>>1 -> Dividing by 2;
 	}
 	return ans;
 }
