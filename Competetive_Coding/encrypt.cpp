@@ -1,29 +1,28 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
-int main(){
-
+int main() {
     int t;
-    cin>>t;
-    while(t--){
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-    for(int i = 0;i<s.size();i++){
-        int j = i+1;
-       while(j<s.size()){
-        if(s[i]==s[j]){
-           s.erase(i+1,j-i);
-                break;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        vector<char> vec;
+        char c = s[0];
+       for (int i = 1; i < n ; i++) {
+    if (s[i] == c) {
+        vec.push_back(c);
+        c = s[i + 1];
+        i++;
+    }
+}
+        for (auto i : vec) {
+            cout << i;
         }
-            j++;
-       }
-
-    }
-    for(auto i : s){
-        cout<<i<<" ";
-    }
+    cout<<endl;
     }
 
     return 0;
