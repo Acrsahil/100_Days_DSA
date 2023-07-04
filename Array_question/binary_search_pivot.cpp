@@ -1,25 +1,25 @@
 #include<iostream>
 using namespace std;
-int  pivot(int arr[],int n){
+
+int pivot(int arr[], int n) {
     int s = 0;
-    int e = n-1;
-    int mid = s+(e-s)/2;
-    while(s<e){
-        if(arr[mid]>=arr[0]){
+    int e = n - 1;
+    while (s < e) {
+        int mid = s + (e - s) / 2;
+        if (arr[mid] > arr[e]) {
             s = mid + 1;
-        }else{
+        } else {
             e = mid;
         }
-        mid = s+(e-s)/2;
     }
     return s;
-    
 }
 
-int main(){
-    int arr[5] = {3,8,10,17,1};
-    int n = 5;
-    int p = pivot(arr,n);
-    cout<<"The pivot element index is "<<p<<endl;
+
+int main() {
+    int arr[6] = {1, 7,3,6,5,6};
+    int n = 6;
+    int p = pivot(arr, n);
+    cout << "The pivot element index is " << p << endl;
     return 0;
 }

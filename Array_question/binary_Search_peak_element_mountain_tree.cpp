@@ -6,20 +6,26 @@ int peak(int arr[],int n){
     int mid = s+(e-s)/2;
 
     while(s<e){
-    if(arr[mid]<arr[mid+1]){
+    if(arr[s]>arr[s+1]) return s;
+
+    if(arr[e]>arr[e-1]) return e;
+
+    if(arr[mid]>arr[mid-1]  && arr[mid]>arr[mid+1]) return mid;
+
+    if(arr[mid]>arr[mid-1]){
         s = mid+1;
 
-    }else{
-        e = mid;
+    }else if(arr[mid]>arr[mid+1]){
+        e = mid-1;
     }
     mid = s+(e-s)/2;
 
     }
-    return s;
+    return -1;
 }
 int main(){
-    int arr[5] ={1,4,7,7,1};
-    int n = 5;
+    int arr[7] ={20,8,9,10,5,4,2};
+    int n = 7;
     int ans = peak(arr,n);
     cout<<"The peak element of the given array is "<<ans<<endl;
     return 0;

@@ -3,6 +3,7 @@
         "*.tcc": "c",
         "numeric": "c",
         "streambuf": "c",
-        "tuple": "c"
+        "tuple": "c",
+        "ostream": "cpp"
     }
 }

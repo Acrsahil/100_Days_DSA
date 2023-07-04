@@ -19,8 +19,7 @@ using namespace std;
             }
             mid = s+(e-s)/2;
         }
-        return ans;
-    
+    return ans;
     }
     double moreprecision(int n, int precision, int tempSol){
         double factor = 1;
