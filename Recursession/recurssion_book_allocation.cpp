@@ -5,35 +5,37 @@
 using namespace std;
 
 bool is_possible(int arr[], int barrier, int n, int k) {
-    int count_std = 1, pages = 0;
-    for (int i = 0; i < n; i++) {
-        if (arr[i] > barrier) return false;
-        if (pages + arr[i] > barrier) {
-            count_std += 1;
-            pages = arr[i];
-        } else {
-            pages += arr[i];
-        }
+   int countstd = 1;
+   int pages = 0;
+   for(int i = 0; i<n; i++){
+    if(arr[i]>barrier) return false;
+
+    if(arr[i]+pages > barrier){
+        countstd += 1;
+        pages += arr[i];
+    }else{
+        pages += arr[i];
     }
-    if (count_std > k) {
-        return false;
-    } else {
-        return true;
-    }
+   }
+   if(countstd>k){
+    return false;
+   }else{
+    return true;
+   }
 }
 
 int book_allocation(int arr[], int s, int e, int n, int k) {
-    int mid = s + (e - s) / 2;
-    int res = -1;
-    if (s >= e) { // Change the termination condition to s >= e
-        return s;
-    }
-    if (is_possible(arr, mid, n, k)) {
-        res = mid;
-        return book_allocation(arr, s, mid, n, k); // Change the recursive call to mid
-    } else {
-        return book_allocation(arr, mid + 1, e, n, k);
-    }
+   int mid = s+(e-s)/2;
+   int res = -1;
+   if(s>=e){
+    return s;
+   }
+   if(is_possible(arr,mid,n,k)){
+    res = mid;
+    return book_allocation(arr,s,mid,n,k);
+   }else{
+    return book_allocation(arr,mid+1,e,n,k);
+   }
 }
 
 int main() {
