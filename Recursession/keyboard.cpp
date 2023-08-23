@@ -2,21 +2,21 @@
 using namespace std;
 
 void solve(vector<string> &ans,string output,string mapping[],int index,string digits){
-    if(index>=digits.length()){
+    if(index >= digits.length()){
         ans.push_back(output);
         return;
     }
     int number = digits[index] - '0';
     string value = mapping[number];
 
-    for(int i = 0; i<value.length(); i++){
+    for(int i = 0; i < value.length(); i++){
         output.push_back(value[i]);
         solve(ans,output,mapping,index+1,digits);
         output.pop_back();
     }
 }
 vector<string> combo(string digits){
-    vector<string> ans;
+    vector <string> ans;
     if(digits.length()==0){
         return ans;
     }
