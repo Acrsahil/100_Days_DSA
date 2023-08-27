@@ -1,36 +1,33 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-void debug(int n){
-    cout<<n<<endl;
-}
+// void debug(int n){
+//     cout<<n<<endl;
+// }
 
 int main()
 {
     int t;
     cin>>t;
     string s;
-    int count = 0;
+    vector<int> res;
     while(t--){
         cin>>s;
-        int i = 0;
-        while(i<s.size()){
-            if(s[i] == '0'){
-                i++;
-            if(s[i] == '1' ){
-                i++;
-                if(s[i+1] == '0'){
-                    count ++;
+        int prev = -1;
+    int count = 0;
+        for(int i = 0; i<s.size(); i++){
+            if(s[i] == '1'){
+                if(prev != -1){
+                    count += (i-prev-1);
                 }
-                i++;
+                prev = i;
             }
-            }else{
-                i++;
-            }
-
         }
-        cout<<count<<endl;
-
-    }
+        
+        res.push_back(count);
+}
+for(auto i : res){
+    cout<<i<<endl;
+}
     return 0;
 }
