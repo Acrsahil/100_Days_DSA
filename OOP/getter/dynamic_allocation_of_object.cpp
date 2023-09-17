@@ -23,9 +23,6 @@ int main()
 
     (*id).employee_name = "hari";
 
-    cout<<id -> employee_name<<endl;
-    
-
-    
+    cout<<id -> employee_name<<endl; 
     return 0;
 }

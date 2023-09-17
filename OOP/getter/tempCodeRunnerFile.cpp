@@ -1,1 +1,5 @@
-    // Student *s = new Student();
+
+
+// // Copy Constructor
+// hero ritesh(suresh);
+// ritesh.print();
