@@ -1,24 +1,20 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-
-int main()
-{
-    int a,b,c;
-    cin>>a>>b>>c;
-
-    int count = 0;
-
-    while(a!=b){
-        if(a>b){
-            a=a-c;
-            b=b+c;
-            count++;
-        }else{
-            b = b-c;
-            a = a+c;
-            count ++;
+      int main() {
+        int t;
+        cin>>t;
+        while(t--){
+            int n;
+            cin>>n;
+            set<string> s;
+            string sk;
+            cin>>sk;
+            for(int i = 0; i<n-1; i++){
+                string st = "";
+                st+= sk[i];
+                st+= sk[i+1];
+                s.insert(st);
+            }
+            cout<<s.size()<<endl;
         }
-    }
-    cout<<count<<endl;
-    return 0;
-}
+      }

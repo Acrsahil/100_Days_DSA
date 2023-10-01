@@ -9,13 +9,6 @@ using namespace std;
 
 int main()
 {
-  vector<int> v(5);
-  for(int i = 1; i<=5; i++){
-    cin >> v[i];
-  }
-  
-  for(auto i : v){
-      cout << i << endl;
-  }
-  return 0;
+    
+    return 0;
 }

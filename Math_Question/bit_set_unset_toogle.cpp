@@ -6,16 +6,16 @@ using namespace std;
 #define ln long long int
 #define test int t; cin>> t; while(t--)
 #define ll long long
-
+void printbinary(int x){
+    for(int i = 4; i>=0; i--){
+         cout << ((x >> i) & 1);
+    }
+    cout << endl;
+}
 int main()
 {
-  vector<int> v(5);
-  for(int i = 1; i<=5; i++){
-    cin >> v[i];
-  }
-  
-  for(auto i : v){
-      cout << i << endl;
-  }
-  return 0;
+   for(int i = 0; i<6; i++) {
+   printbinary(5);
+   }
+    return 0;
 }

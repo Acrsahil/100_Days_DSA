@@ -16,9 +16,10 @@ public:
     {
         cout << "say Hello" << endl;
     }
-    void sayHello(string s = "sahil") // default arguments -> different arguments!
+    void sayHello(string s,int n) // default arguments -> different arguments!
     {
         cout << "say Hello" << endl;
+        cout<< n << endl;
     }
 };
 // moral of the story : we have to change in signature of the function to acheive function overloading!
@@ -26,5 +27,9 @@ int main()
 {
     A obj;
     obj.sayHello();
+
+
+    obj.sayHello();
+
     return 0;
 }

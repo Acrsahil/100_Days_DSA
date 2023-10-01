@@ -28,7 +28,7 @@ int main()
     //  obj.func(); this will form ambiguity issue
     //  obj.func();
     obj.A::func(); // method : to resolve this ambiguity issue
-    obj.A::func();
+    obj.B::func(); // it will only call function of the given class
 
 
     return 0;

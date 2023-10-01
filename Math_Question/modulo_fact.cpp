@@ -9,13 +9,12 @@ using namespace std;
 
 int main()
 {
-  vector<int> v(5);
-  for(int i = 1; i<=5; i++){
-    cin >> v[i];
-  }
-  
-  for(auto i : v){
-      cout << i << endl;
-  }
-  return 0;
+    long long m = 40000000000 + 7;
+    int n = 100;
+    long long fac = 1;
+    for(int i = 1; i <= n; i++){
+       fac = (fac * i) % m; 
+    }
+    cout << fac << endl;
+    return 0;
 }

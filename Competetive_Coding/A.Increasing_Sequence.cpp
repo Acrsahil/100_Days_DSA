@@ -9,13 +9,17 @@ using namespace std;
 
 int main()
 {
-  vector<int> v(5);
-  for(int i = 1; i<=5; i++){
-    cin >> v[i];
-  }
-  
-  for(auto i : v){
-      cout << i << endl;
-  }
-  return 0;
+    test{
+
+   int n,cnt = 1, b;
+   cin >> n;
+   F(i,n) {
+    cin>> b;
+    if(b == cnt){
+        cnt++;
+    }
+    cnt++;
+   }
+   cout << cnt-1 << endl;
+    }
 }
