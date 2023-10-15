@@ -1,26 +1,17 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
-int main() {
-    int t;
-    std::cin >> t;
+#define F(i,n) for(int i = 0; i<n; i++)
+#define vi vector<int>
+#define ln long long int
+#define test int t; cin>> t; while(t--)
+#define ll long long
 
-    while (t--) {
-        int n;
-        std::cin >> n;
+int main()
+{
+    int a = 4;
+    int b = 10;
 
-        std::string s;
-        std::cin >> s;
-
-        int count = 0;
-        for (int i = 0; i < n - 1; i++) {
-            if (s[i] != s[i + 1]) {
-                count++;
-            }
-        }
-
-        std::cout << count << std::endl;
-    }
-
+    cout << (a ^ b) << endl;
     return 0;
 }

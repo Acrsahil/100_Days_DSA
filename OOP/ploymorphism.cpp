@@ -5,7 +5,7 @@ class A
 public:
     void sayHello() // no arguments -> (different arguments)!
     {
-        cout << "say Hello" << endl;
+        // cout << "say Hello" << endl;
     }
     int sayHello(char s) // different arguments!
     {
@@ -18,7 +18,7 @@ public:
     }
     void sayHello(string s,int n) // default arguments -> different arguments!
     {
-        cout << "say Hello" << endl;
+        cout << "say Helloooo" << endl;
         cout<< n << endl;
     }
 };
@@ -29,7 +29,7 @@ int main()
     obj.sayHello();
 
 
-    obj.sayHello();
+    obj.sayHello("sahil");
 
     return 0;
 }

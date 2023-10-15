@@ -9,6 +9,14 @@ using namespace std;
 
 int main()
 {
-    cout << (3<<1) << endl;
+    test{
+       int n; 
+       cin >>n;
+       int k = 1;
+       while(n--){
+        cout << k << " ";
+        k += 2;
+       } cout << endl;
+    }
     return 0;
 }

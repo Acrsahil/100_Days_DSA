@@ -9,6 +9,14 @@ using namespace std;
 
 int main()
 {
-    cout << (3<<1) << endl;
+    test{
+        int n; cin >> n;
+        int monster[n];
+        int speel[n];
+        for(int i = 0; i<n; i++){
+            cin >> monster[i];
+            
+        }
+    }
     return 0;
 }

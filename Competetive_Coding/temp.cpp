@@ -9,6 +9,13 @@ using namespace std;
 
 int main()
 {
-    cout << (3<<1) << endl;
+    for(int i = 1; i<=50; i++){
+        for(int j = 1; j<=50; j++){
+            if((i^j)*2 == i+j){
+                cout << i <<" " << j << endl;
+            }
+        }
+    }
+    cout << char('A' | ' ')<< endl;
     return 0;
 }
