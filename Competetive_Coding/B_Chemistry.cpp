@@ -34,15 +34,33 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
+    test{
+        int num,k;
+        cin >> num >> k;
+        string s;
+        cin >> s;
+        map<int,char>mp;
+        for(int i = 0; i<num; i++){
+            mp[s[i]]++;
 
+        }
+        ll odd = 0;
+        
+        string temp = "";
+        for(auto i : mp){
+            if(i.second&1){
+                odd++;
+            }
+        }
+       if(k < odd-1){
+        cout << "NO" << endl;
+       }else{
+        cout << "YES" << endl;
+       }
+
+
+
+
+    }
 return 0;
 }

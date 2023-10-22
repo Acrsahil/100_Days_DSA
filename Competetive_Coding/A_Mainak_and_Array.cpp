@@ -34,15 +34,35 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
+     int t;
+    cin >> t;
 
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+        }
+
+        int max_effect = 0;
+
+        for (int l = 0; l < n; l++) {
+            int sum = 0, min_in_subsegment = a[l], max_in_subsegment = a[l];
+
+            for (int r = l; r < n; r++) {
+                sum += a[r];
+                min_in_subsegment = min(min_in_subsegment, a[r]);
+                max_in_subsegment = max(max_in_subsegment, a[r]);
+
+                int effect = (sum - min_in_subsegment * (r - l + 1)) - (max_in_subsegment * (r - l + 1) - sum);
+                max_effect = max(max_effect, effect);
+            }
+        }
+
+        cout << max_effect << endl;
+        debug(a);
+    }
 return 0;
 }

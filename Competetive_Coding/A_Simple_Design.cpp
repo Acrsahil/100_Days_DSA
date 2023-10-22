@@ -30,19 +30,44 @@ template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v)
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
 
+ll solve(ll x,ll k){
+    ll sum = 0;
+     while(x != 0){
+            ll r = x%10;
+            sum += r;
+            x /= 10;
+        }
+        return sum;
+}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
+    test{
+        ll x,k;
+        cin >> x >> k;
+        ll sum = 0;
+        ll temp = x;
+        while(temp != 0){
+            ll r = temp%10;
+            sum += r;
+            temp /= 10;
+        }
+        debug(sum);
 
+        if(sum%k == 0){
+            cout << x << endl;
+        }else{
+            while(sum %k != 0){
+                sum = solve(x+=1,k);
+            }
+                debug(x);
+                cout << x << endl;
+        
+        }
+            
+        
+    }
 return 0;
 }

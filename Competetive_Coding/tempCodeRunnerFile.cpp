@@ -1,2 +1,1 @@
-
-            int num;
+ debug(v);

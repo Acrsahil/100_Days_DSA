@@ -19,6 +19,7 @@ void _print(char a) { cerr << a << " "; }
 void _print(string a) { cerr << a << " "; }
 void _print(bool a) { cerr << a << " "; }
 
+
 template <class T, class V> void _print(pair<T, V> p) { cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}"; }
 template <class T> void _print(vector<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
@@ -30,19 +31,24 @@ template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v)
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
 
+
+class Node{
+    public:
+    int data;
+    Node *next;
+    // constructor
+    Node(int data){
+        this -> data = data;
+        this -> next = next;
+    }
+
+};
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
-
+    Node  *node1 = new   Node(10);
+    cout<< node1 -> data << endl;
+    cout << node1->next << endl;  
 return 0;
 }

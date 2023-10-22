@@ -34,15 +34,32 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
+    ll n, q;
+    cin >> n >> q;
+    vector<ll> p(n);
+    for(int i = 0; i < n; i++){
+        cin >> p[i];
+    }
+    
+    sort(p.begin(), p.end(), greater<ll>());
+    
+    // Create a prefix sum array
+    vector<ll> prefix_sum(n + 1);
+    for(int i = 0; i < n; i++) {
+        prefix_sum[i + 1] = prefix_sum[i] + p[i];
+    }
+    debug(prefix_sum);
+    
+    for(int i = 0; i < q; i++) {
+        ll x, y;
+        cin >> x >> y;
+        
+        // Calculate the total cost using prefix sum
+        ll count = prefix_sum[x] - prefix_sum[x - y];
+        
+        debug(count);
+        cout << count << endl;
+    }
 
-return 0;
+    return 0;
 }

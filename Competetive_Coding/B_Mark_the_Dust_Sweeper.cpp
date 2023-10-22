@@ -34,15 +34,28 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
+test{
 
+    ll n; cin >> n;
+    vector<ll> v(n);
+    int positive = -1;
+    ll ans = 0;
+    for(int i = 0; i<n; i++){
+        cin >> v[i];
+        if(positive == -1 && v[i]>0){
+            positive = i;
+        }
+    }
+    if(positive == -1 && positive == v.size()-1){
+        cout << 0 << endl;
+    }
+    for(int i = positive; i<v.size()-1; i++){
+        ans += v[i];
+        if(v[i] == 0){
+            ans ++;
+        }
+    }
+    cout << ans  << endl;
+}
 return 0;
 }

@@ -34,15 +34,36 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
-
-return 0;
+  test{
+    string s;
+    cin>>s;
+    ll n=s.size();
+ 
+    ll sum=4;
+    
+    for(int i = 0; i<n-1; i++){
+        ll x,y;
+        x = s[i]-'0';
+        y = s[i+1]-'0';
+        
+        if(x==0){
+            x=10;
+        }
+        if(y==0){
+            y=10;
+        }
+        if(i==0){
+             sum+=abs(x-1);
+        }
+        debug(sum);
+        sum+=abs(x-y);
+    }
+    cout << sum<< endl;
+    
+    
+}
+    
+    
+    
+    return 0;
 }

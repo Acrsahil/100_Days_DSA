@@ -34,15 +34,31 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
-
+ 
+       test{
+        int n,m;
+        cin >> n >> m;
+        ll arr[n][m];
+        for(ll i = 0; i<n; i+=2){
+            for(ll j = 0; j<m; j+=2){
+                if((i+j)%4 == 0){
+                    arr[i][j] = 0;
+                    arr[i][j+1] = 1;
+                    arr[i+1][j] = 1;
+                    arr[i+1][j+1] = 0;
+                }else{
+                    arr[i][j] = 1;
+                    arr[i][j+1] = 0;
+                    arr[i+1][j] = 0;
+                    arr[i+1][j+1] = 1;
+                }
+            }
+        }
+       for(int i = 0; i<n; i++){
+        for(int j = 0; j<m; j++){
+            cout << arr[i][j] << " ";
+        }cout << endl;
+       }
+       }
 return 0;
 }

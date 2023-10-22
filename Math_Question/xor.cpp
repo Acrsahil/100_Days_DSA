@@ -34,15 +34,15 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
+    int a = 5;
+    int b = 6;
 
+    cout << "previous" <<endl;
+    cout << "a -> " << a << " b -> " << b << endl;
+    a = a^b;
+    b = b^a;
+    a = a^b;
+
+    cout << "a -> " << a << " b -> " << b << endl;
 return 0;
 }

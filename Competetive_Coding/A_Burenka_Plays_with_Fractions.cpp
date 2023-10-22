@@ -34,15 +34,23 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    map<int,int> p;
-    p.insert({1,5});
-    p.insert({2,5});
-    p.insert({3,5});
-    p.insert({4,5});
-    p.insert({5,5});
-    p.insert({6,5});
-    p.insert({7,5});
-    debug(p);
+    test{
+        ll a,b,c,d;
+        cin >> a >> b >> c >> d;
+        ll output1 = a*d;
+        ll output2 = b*c;
 
+        if(output1 == output2){
+            cout << 0 << endl;
+        }else if(output1 == 0 || output2 == 0){
+            cout << 1 << endl;  
+        }else if(output1%output2 == 0 || output2%output1 == 0){
+            cout << 1 << endl;
+        }else{
+            cout << 2 << endl;
+        }
+
+    }
+        
 return 0;
 }
