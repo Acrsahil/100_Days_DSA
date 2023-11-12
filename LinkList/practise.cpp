@@ -43,6 +43,12 @@ class Node{
     }
 
 };
+void InsertatHead(Node * &head, int d){
+    // create new node
+    Node *temp = new Node(d);
+    temp -> next = head;
+    head -> temp;
+}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);

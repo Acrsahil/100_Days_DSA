@@ -52,6 +52,7 @@ int main() {
                 odd++;
             }
         }
+        debug(odd);
        if(k < odd-1){
         cout << "NO" << endl;
        }else{

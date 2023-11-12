@@ -39,14 +39,15 @@ int main() {
     while(t--)
     {
         long long int n, sum = 0, qtdZero = 0;
-        bool one = false;
         string s;
         cin >> n >> s;
         for(long long int i = n - 1, j = 0; i >= 0; i--)
         {
             if(s[i] == '0')
             {
+                
                 sum += (n - j++) - (i + 1);
+               
                 cout << sum << ' ';
                 qtdZero++;
             }
@@ -55,6 +56,7 @@ int main() {
         {
             cout << "-1 ";
         }
+        debug("hello");
         cout << endl;
     }
 }

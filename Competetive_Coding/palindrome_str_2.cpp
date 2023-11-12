@@ -21,6 +21,7 @@ int main()
         cout << "string is not palindrome" <<endl;
     }
     
+    
 
     return 0;
 }

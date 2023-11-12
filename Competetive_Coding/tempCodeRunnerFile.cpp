@@ -1,1 +1,2 @@
- debug(v);
+
+        cin >> s;

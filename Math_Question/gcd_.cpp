@@ -12,7 +12,8 @@ int gcd(int a, int b){
 }
 int main()
 {
-       int a = 1,b = 2;     
+       int a,b;
+       cin >> a >> b;  
        cout << gcd(a,b) << endl; // used to find the GCD using Lucrin Algorethem
        cout << a*b /(gcd(a,b)) << endl; // used to find the LCM of the given number a and b
        cout << (a/gcd(a,b)); 
