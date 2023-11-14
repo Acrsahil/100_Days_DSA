@@ -34,25 +34,23 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    int t, i, j, n, mx, ans;
-    cin >> t;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        int arr[n];
-        int ans = 0; 
-        for(int i = 0;i<n; i++){
-            cin >> arr[i];
+    test{
+        ll n; cin >> n;
+        ll x = n/6;
+        ll y = n%6;
+
+        if(n<=6){
+            cout << 15 << endl;
+        }else if(y == 0){
+            cout << (x*15) << endl;
+        }else if(y <=2){
+            cout << (x*15) + 5 << endl;
+        }else if(y<=4){
+            cout << (x*15) + 10 << endl;
+        }else{
+            x++;
+            cout << (x*15) << endl;
         }
-        int mx = arr[n-1];
-        for(int i = n-2; i>=0; i--){
-            if(arr[i]>mx){
-                mx = arr[i];
-                ans ++;
-            }
-        }
-        cout << ans << endl;
-    } 
+    }
 return 0;
 }

@@ -38,45 +38,11 @@ Node * insertAfterNode(Node * pnode,Node *head,int data){
     pnode->next = ptr;
     return head;
 }
-Node * insertAtindex (Node* head,int data,int index){
-    Node *ptr;
-    Node *p = head;
-    int i = 0;
-    while(i != index-1){
-        p = p-> next;
-        i++;
-    }
-    ptr -> data = data;
-    ptr->next =  p->next;
-    p-> next = ptr;
-    return head;
-}
+
 Node * deletefirsrtNode(Node *head){
     Node *ptr= head;
     head = head -> next;
     delete ptr;
-    return head;
-}
-Node * deletelastNode(Node *head){
-    Node *ptr= head;
-    Node *p= head->next;
-    while(p->next != NULL){
-        p = p -> next;
-        ptr = ptr -> next;
-    }
-    ptr -> next = NULL;
-    delete p;
-    return head;
-}
-Node * deleteNodefromdata(Node *head,int data){
-    Node *ptr = head;
-    Node *p = head-> next;
-    while(p->data != data){
-        ptr = ptr -> next;
-        p = p -> next;
-    }
-    ptr -> next = p -> next;
-    delete p;
     return head;
 }
 Node * deleteNodefromindex(Node *head,int ind){
@@ -89,6 +55,30 @@ Node * deleteNodefromindex(Node *head,int ind){
     Node * q = p->next;
     p -> next = q -> next;
     delete q;
+    return head;
+}
+Node * deletelastNode(Node *head){
+    Node *ptr= head;
+    Node *p= head->next;
+    while(p->next != NULL){
+        ptr = ptr -> next;
+        p = p -> next;
+    }
+    ptr -> next = NULL;
+    delete p;
+    return head;
+}
+Node * deleteNodefromdata(Node *head,int data){
+    Node *ptr = head;
+    Node *p = head-> next;
+    while(p->data != data && p->next != NULL){
+        ptr = ptr -> next;
+        p = p -> next;
+    }
+    if(p-> data == data){
+        ptr -> next = p -> next;
+        delete p;
+    }
     return head;
 }
 int main()
