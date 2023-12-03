@@ -29,30 +29,28 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
     test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
-        }
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
     }
-        
-    
+    debug(a);
+    long long ans = 0;
+    int c = 1;
+    for (int i = n - 2; i >= 0; --i) {
+        int x = a[i+1]/c;
+        c = (a[i] + x-1)/x;
+        c = max(c,1);
+        ans += c-1;
+    }
+    cout << ans << "\n";
+    }
 return 0;
 }

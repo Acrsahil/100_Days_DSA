@@ -6,7 +6,8 @@ using namespace std;
 #define ln long long int
 #define test int t; cin >> t; while (t--)
 #define ll long long
-
+#define v(in) vector<int>v(n)
+#define v(ln) vector<ll>v(n)
 #ifndef ONLINE_JUDGE
 #define debug(x) cerr << #x << " -> "; _print(x); cerr << endl
 #else
@@ -29,30 +30,23 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
+    int f;
+    cin >> f;
+    int sum = 0,fi,a=0; 
+    for(int i = 0; i<f; i++){
+        cin>> fi;
+        sum += fi;
+    }
+    for(int i = 1; i<=5; i++){ 
+        if((sum+i)%(f+1)!=1){ // f+1 means including dema // sum +i means dema all fingers check // !=1 means excluding the dema 
+            a++;
         }
     }
-        
-    
+    cout << a << endl;
 return 0;
 }

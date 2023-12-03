@@ -29,30 +29,25 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
-        }
-    }
-        
-    
+test{
+    int a,b,c;
+    cin >> a >> b >> c;
+    int one,two,three;
+    if(abs(b-c)%2 == 0) one = 1;
+    else one = 0;
+
+    if(abs(a-c)%2 == 0) two = 1;
+    else two = 0;
+
+    if(abs(a-b)%2 == 0) three = 1;
+    else three = 0;
+
+    cout << one << " " << two << " " << three<< endl;
+}
 return 0;
 }

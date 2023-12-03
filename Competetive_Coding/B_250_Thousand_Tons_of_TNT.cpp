@@ -10,7 +10,7 @@ using namespace std;
 #ifndef ONLINE_JUDGE
 #define debug(x) cerr << #x << " -> "; _print(x); cerr << endl
 #else
-#define debug(x)
+#define debug(x)se
 #endif
 
 void _print(int a) { cerr << a << " "; }
@@ -29,30 +29,34 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
     test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
+        ll a,n,resmax = 0;
+        cin >> n;
+        vector<ll>pre;
+        ll sum = 0;
+        pre.push_back(0);
+        F(i,n){
+            cin >> a;
+            sum += a;
+            pre.push_back(sum);
         }
+        for(int i = 1; i<=n; i++){
+            vector<ll> v;
+            if(n%i == 0){
+                for(int j = i; j<=n; j+=i){
+                    sum = pre[j] - (pre[j-(i)]);
+                    v.push_back(sum);
+                }
+        sort(v.begin(),v.end());
+        resmax = max(resmax,v[(ll)v.size()-1]-v[0]);
+            }
+        }
+        cout << resmax << endl;
     }
-        
-    
 return 0;
 }

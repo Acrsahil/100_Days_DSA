@@ -1,2 +1,1 @@
-
-int gcd(int a, int b){
+  cout << a <<

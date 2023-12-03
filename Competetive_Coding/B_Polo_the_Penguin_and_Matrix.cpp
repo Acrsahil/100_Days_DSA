@@ -29,30 +29,35 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
+    int n,m,d;
+    cin >> n >> m >> d;
+    int arr[n][m];
+    bool check = true;
+    for(int i = 0; i<n;i++){
+        for(int j = 0; j<m; j++){
+            cin >> arr[i][j];
+            if(arr[i][j]%d != 0){
+                check = false;
+                break;
+            }
         }
     }
-        
-    
+        int ans = -1;
+        if(check){
+        for(int i = 0; i<n;i++){
+            for(int j = 0; j<m; j++){
+                ans = max(ans,arr[i][j]/d);
+        }
+        }
+    cout << ans << endl;
+    }else{
+        cout << -1;
+    }
+
 return 0;
 }

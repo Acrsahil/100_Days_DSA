@@ -29,30 +29,39 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
     test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
-        }
-    }
+        int n;
+        cin >> n;
         
-    
+        string s;
+        cin >> s;
+        int index = s.find("...");
+        if(index != string::npos){
+            cout << 2 << endl;
+            continue;   
+        }else{
+            int countd = 0;
+            int counth = 0;
+            for(int i = 0; i<n; i++){
+                if(s[i] == '.'){
+                    countd++;
+                }
+                if(s[i] == '#'){
+                    counth++;
+                }
+            }
+            if(counth == n){
+                cout << 0 << endl;
+            }else{
+                cout << countd << endl;
+            }
+        }
+
+    }
 return 0;
 }

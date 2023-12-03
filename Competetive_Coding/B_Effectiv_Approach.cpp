@@ -29,30 +29,32 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+ll v[100021],b[100021],pos[100021];
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
-        }
+    ll n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+        pos[v[i]] = i;
     }
-        
-    
-return 0;
+
+    ll m;
+    cin >> m;
+    for(int i = 0; i<m; i++){cin >> b[i];}
+
+    ll s1= 0,s2=0;
+    for(int i = 0; i<m; i++){
+        s1+= pos[b[i]]+1;
+        s2 += n-pos[b[i]];
+    }
+    cout << s1 << " " << s2 << endl;
+
+
+
+
+
+    return 0;
 }

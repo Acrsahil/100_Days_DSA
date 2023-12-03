@@ -29,30 +29,43 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
     test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        stack<int> st;
+        F(i,n){cin >> a[i];}
+
+        for(int i = n-1; i>=0; i--){
+            if(a[i]>1 && a[i-1]<a[i]){
+                int range = a[i];
+                int j = 0;
+                while(j<=range && j<n){
+                    st.push(1);
+                    j++;
+                    i--;
+                }
+            }else if(a[i]>1 && a[i]<a[i-1]){
+                int range = (a[i-1]-a[i]) + a[i];
+                int j = 0;
+                while(j<=range && j<n){
+                    st.push(1);
+                    j++;
+                    i--;
+                }
+            }else{
+                st.push(a[i]);
+            }
         }
+        while(!st.empty()){
+            cout << st.top() << " ";
+            st.pop();
+        }cout << endl;
     }
-        
-    
 return 0;
 }

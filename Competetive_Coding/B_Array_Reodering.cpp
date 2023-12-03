@@ -29,30 +29,39 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
     test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
+        int n;
+        cin >>n;
+        vector<ll>even;
+        vector<ll>odd;
+        vector<ll>ans;
+        for(int i = 0; i<n; i++){
+            ll a; 
+            cin >> a;
+            if(a%2 != 0){
+                odd.push_back(a);
+            }else{
+                even.push_back(a);
+            }
         }
+        for(auto i :even){ans.push_back(i);}
+        for(auto i : odd){ans.push_back(i);}
+
+        ll res = 0;
+        for(int i = 0; i<n; i++){
+            for(int j= i+1; j<n; j++){
+                if(__gcd(ans[i],2*ans[j])>1){
+                    res++;
+                }
+            }
+        }
+        cout << res << endl;
+
     }
-        
-    
 return 0;
 }

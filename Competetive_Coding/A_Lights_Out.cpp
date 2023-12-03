@@ -29,30 +29,24 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
-        }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
+    vector<vector<int>> v(10,vector<int>(10,0));
+    for(int i= 1; i<=3; i++){
+        for(int j = 1; j<=3; j++){
+           cin >> v[i][j];
         }
     }
-        
-    
+    for(int i= 1; i<=3; i++){
+        for(int j = 1; j<=3; j++){
+            int cnt = v[i][j]+v[i-1][j]+v[i+1][j]+v[i][j-1]+v[i][j+1];
+            if(cnt%2) cout << "0";
+            else cout << "1";
+        }
+        cout << "\n";
+    }
 return 0;
 }

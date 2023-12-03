@@ -29,30 +29,38 @@ template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (a
 template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
-ll gcd(ll a, ll b){
-    if(a == 0){
-        return b;
-    }
-    return gcd(b%a,a);
-}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    test{
-        ll a,b;
-        cin >> a >> b;
-        if(a>b) swap(a,b);
-        ll ans = b -a;
-        if(ans == 0){
-            cout << 0 << " " << 0 << endl;
+    int n;
+    cin >> n;
+    vector<int>l(n);
+    vector<int>r(n);
+    int lopen = 0;
+    int lclose = 0;
+    int ropen = 0;
+    int rclose = 0;
+    for(int i = 0; i<n;i++){
+        cin>> l[i];
+        cin>> r[i];
+    }
+
+    for(int i = 0; i<n;i++){
+        if(l[i] == 1){
+            lopen ++;
         }else{
-            ll decr = a%ans; // number to decrement to make divisible
-            ll two = ans - decr; // number to increment to make divisible   
-            cout << ans << " " << min(decr,two) << endl;
+            lclose++;
+        }
+        if(r[i] == 1){
+            ropen ++;
+        }else{
+            rclose++;
         }
     }
-        
+    int ans = min(ropen,rclose) + min(lopen,lclose);
+    cout << ans << endl;
     
 return 0;
 }

@@ -1,55 +1,46 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "Compile and run",
-        "type": "shell",
-        "command": "g++",
-        "args": [
-          "${file}",
-          "-o",
-          "${fileDirname}/jspwTest",
-          "&&",
-          "${fileDirname}/jspwTest",
-          "<",
-          "input.txt",
-          ">",
-          "output.txt"
-        ],
-        "presentation": {
-          "reveal": "never"
-        },
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        },
-        "problemMatcher": {
-          "owner": "cpp",
-          "fileLocation": [
-            "relative",
-            "${workspaceRoot}"
-          ],
-          "pattern": {
-            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-            "file": 1,
-            "line": 2,
-            "column": 3,
-            "severity": 4,
-            "message": 5
-          }
-        }
-      },
-      {
-        "type": "cmake",
-        "label": "CMake: build",
-        "command": "build",
-        "targets": [
-          "[N/A - Select Kit]"
-        ],
-        "group": "build",
-        "problemMatcher": [],
-        "detail": "CMake template build task"
-      }
-    ]
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "Compile and run",
+		"type": "shell",
+		"command": "g++",
+		"args": [
+		  "${file}",
+		  "-o",
+		  "${fileDirname}/output",
+		  "&&",
+		  "${fileDirname}/output",
+		  "<",
+		  "input.txt",
+		  ">",
+		  "output.txt",
+		  "&&",
+		  "rm",
+		  "${fileDirname}/output"
+		],
+		"presentation": {
+		  "reveal": "never"
+		},
+		"group": {
+		  "kind": "build",
+		  "isDefault": true,
+		},
+		"problemMatcher": {
+		  "owner": "cpp",
+		  "fileLocation": [
+			"relative",
+			"${workspaceRoot}"
+		  ],
+		  "pattern": {
+			"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+			"file": 1,
+			"line": 2,
+			"column": 3,
+			"severity": 4,
+			"message": 5
+		  }
+		}
+	  }
+	]
   }
-  
