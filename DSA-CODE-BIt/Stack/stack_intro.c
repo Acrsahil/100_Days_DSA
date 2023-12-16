@@ -6,83 +6,89 @@ struct st
     int size;
     int top;
     int *arr;
+} typedef stack;
 
-
-}typedef stack;
-
-int isempty(stack * p){
-    if(p->top == -1){
-        return 1;
-    }else{
-        return 0;
-    }
-}
-int isfull(stack * p){
-    if(p->top == p->size-1){
-        return 1;
-    }else{
-        return 0;
-    }
+int isempty(stack *p)
+{
+    return (p->top == -1) ? 1 : 0;
 }
 
-void push(stack *s,int value){
-    if(isfull(s)){
+int isfull(stack *p)
+{
+    return (p->top == p->size - 1) ? 1 : 0;
+}
+
+void push(stack *s, int value)
+{
+    if (isfull(s))
+    {
         printf("Stack Overflow!\n");
-    }else{
+    }
+    else
+    {
         s->top++;
         s->arr[s->top] = value;
     }
 }
-int pop(stack *s){
-    stack *p = s;
-    if(isempty(p)){
+
+int pop(stack *s)
+{
+    if (isempty(s))
+    {
         printf("Stack Underflow!\n");
         return -1;
-    }else{
-        int temp = p->arr[p->top];
-        p->top--;
+    }
+    else
+    {
+        int temp = s->arr[s->top];
+        s->top--;
         return temp;
     }
 }
-void printstack(stack *s){
-    stack *p = s;
-    if(isempty(p)){
+
+void printstack(stack *s)
+{
+    if (isempty(s))
+    {
         printf("Empty Stack!");
-    }else{
-    int top = p->top;
-    while(top !=-1){
-        printf("%d ",p->arr[top]);
-        top--;
-    }printf("\n");
+    }
+    else
+    {
+        int top = s->top;
+        while (top != -1)
+        {
+            printf("%d ", s->arr[top]);
+            top--;
+        }
+        printf("\n");
     }
 }
-int peek(stack *s){
-    if(isempty(s)){
-        return -1;
-    }else{
-        return s->arr[s->top];
-    }
+
+int peek(stack *s)
+{
+    return (isempty(s)) ? -1 : s->arr[s->top];
 }
 
 int main()
 {
-    stack * s;
+    stack *s = (stack *)malloc(sizeof(stack));
     printf("Enter the size of the stack: ");
-    scanf("%d",&s->size);
+    scanf("%d", &s->size);
     s->top = -1;
-    s->arr = (int *)malloc(s->size*sizeof(int));
+    s->arr = (int *)malloc(s->size * sizeof(int));
 
-    push(s,5);
-    push(s,7);
-    push(s,8);
-    push(s,9);
-    push(s,10);
+    push(s, 5);
+    push(s, 7);
+    push(s, 8);
+    push(s, 9);
+    push(s, 10);
 
-    printf("%d\n",peek(s));
-    push(s,11);
-    printf("%d\n",peek(s));
+    printf("%d\n", peek(s));
+    push(s, 11);
+    printf("%d\n", peek(s));
 
-    // printf("top element of the stack is %d\n",peek(s));
+    free(s->arr);
+    free(s);
 
     return 0;
 }

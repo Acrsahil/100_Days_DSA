@@ -11,11 +11,22 @@ void LinkListTraversal(Node *node)
 {
     while (node != NULL)
     {
-        cout << "Element: "<< node->data << endl;
+        cout<< node->data << " ";
         node = node->next;
     }
+    cout << endl;
 }
 Node * reverselinklist(Node * head){
+    if(head == NULL || head -> next == NULL){
+        return head;
+    }
+    Node * chotta = reverselinklist(head-> next);
+    head->next->next = head;
+    head-> next = NULL;
+    return chotta;
+}
+Node * reverseittlist(Node * head){
+
     Node * prev =NULL;
     Node * curr = head;
     Node * forward = new Node();

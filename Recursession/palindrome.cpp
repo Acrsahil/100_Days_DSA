@@ -3,6 +3,7 @@ using namespace std;
 
 
 bool ispalindrome(string st,int start,int end){
+    cout << "start "<< start << " end " << end<< endl;
     if(start==end){
         return true;
     }
