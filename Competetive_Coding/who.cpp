@@ -106,17 +106,18 @@ template <class T, class V> void _print(unordered_map<T, V> v) {
 
 int main() {
 #ifndef ONLINE_JUDGE
+  freopen("input.txt", "r", stdin);   // Redirect stdin to read from input.txt
+  freopen("output.txt", "w", stdout); // Clear and redirect stdout to output.txt
   freopen("Error.txt", "w", stderr);
 #endif
-  test {
-    string s;
-    cin >> s;
-    int n = s.size();
 
-    if (s[0] != s.back()) {
-      s.back() = s[0];
-    }
-    cout << s << endl;
-  }
+  // Clear the content of output.txt
+  std::ofstream ofs("output.txt", std::ofstream::out | std::ofstream::trunc);
+  ofs.close();
+
+  // Your C++ code here
+  int n;
+  cout << "Hello, this is a test message! " << n << endl;
+
   return 0;
 }

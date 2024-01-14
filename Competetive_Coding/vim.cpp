@@ -24,7 +24,6 @@ void _print(long long a) { cerr << a << " "; }
 void _print(char a) { cerr << a << " "; }
 void _print(string a) { cerr << a << " "; }
 void _print(bool a) { cerr << a << " "; }
-
 template <class T, class V> void _print(pair<T, V> p) {
   cerr << "{";
   _print(p.first);
@@ -108,15 +107,11 @@ int main() {
 #ifndef ONLINE_JUDGE
   freopen("Error.txt", "w", stderr);
 #endif
-  test {
-    string s;
-    cin >> s;
-    int n = s.size();
-
-    if (s[0] != s.back()) {
-      s.back() = s[0];
-    }
-    cout << s << endl;
+  int n;
+  cin >> n;
+  while (n--) {
+    cout << "who is n in this class" << endl;
   }
+
   return 0;
 }

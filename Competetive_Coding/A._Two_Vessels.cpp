@@ -4,8 +4,11 @@ using namespace std;
         int t;
         cin>>t;
         while(t--){
+
             int n;
+
             cin>>n;
+
             set<string> s;
             string sk;
             cin>>sk;
@@ -15,6 +18,6 @@ using namespace std;
                 st+= sk[i+1];
                 s.insert(st);
             }
-            cout<<s.size()<<endl;
+                              cout<<s.size()<<endl;
         }
       }

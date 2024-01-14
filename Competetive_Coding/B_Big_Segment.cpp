@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <climits>
+#include <vector>
 using namespace std;
 
 #define F(i, n) for (int i = 0; i < n; i++)
@@ -18,7 +20,6 @@ void _print(long long a) { cerr << a << " "; }
 void _print(char a) { cerr << a << " "; }
 void _print(string a) { cerr << a << " "; }
 void _print(bool a) { cerr << a << " "; }
-
 template <class T, class V> void _print(pair<T, V> p) { cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}"; }
 template <class T> void _print(vector<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
@@ -34,11 +35,31 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    char a = '5';
-    int b = a-'0';
-    int c = a;
-    cout << typeid(b).name() << endl;
-    cout << b << endl;
-    cout << c << endl;
-return 0;
+int q;
+  cin >> q;
+int n = q;
+vector<int>le;
+vector<int>ri;
+  ll mini = LONG_MAX;
+  ll maxi = LONG_MIN;
+
+  while(q--){
+    ll l,r; cin >> l >> r;
+    le.push_back(l);
+    ri.push_back(r);
+    mini = min(mini,l);
+    maxi = max(maxi,r);
+  }
+  int ans = -1;
+  for(int i = 0; i<n; i++){
+    if(le[i] == mini  && ri[i] == maxi){
+      ans = i;
+    }
+  }
+  if(ans == -1){
+    cout << -1 << endl;
+  }else{
+    cout << ans + 1 << endl;
+  }
+    return 0;
 }

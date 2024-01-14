@@ -106,17 +106,13 @@ template <class T, class V> void _print(unordered_map<T, V> v) {
 
 int main() {
 #ifndef ONLINE_JUDGE
+  freopen("input.txt", "r", stdin);   // Redirect stdin to read from input.txt
+  freopen("output.txt", "w", stdout); // Redirect stdout to write to output.txt
   freopen("Error.txt", "w", stderr);
 #endif
-  test {
-    string s;
-    cin >> s;
-    int n = s.size();
+  int n;
+  cin >> n;
+  cout << n << enld;
 
-    if (s[0] != s.back()) {
-      s.back() = s[0];
-    }
-    cout << s << endl;
-  }
   return 0;
 }

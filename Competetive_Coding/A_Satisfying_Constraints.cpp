@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <set>
 using namespace std;
 
 #define F(i, n) for (int i = 0; i < n; i++)
@@ -24,7 +25,6 @@ void _print(long long a) { cerr << a << " "; }
 void _print(char a) { cerr << a << " "; }
 void _print(string a) { cerr << a << " "; }
 void _print(bool a) { cerr << a << " "; }
-
 template <class T, class V> void _print(pair<T, V> p) {
   cerr << "{";
   _print(p.first);
@@ -109,14 +109,29 @@ int main() {
   freopen("Error.txt", "w", stderr);
 #endif
   test {
-    string s;
-    cin >> s;
-    int n = s.size();
+    ll l = 1, r = 10e9, q;
+    set<ll> st;
+    cin >> q;
+    while (q--) {
+      ll n, x;
+      cin >> n >> x;
+      if (n == 1)
+        l = max(x, l);
+      if (n == 2)
+        r = min(x, r);
 
-    if (s[0] != s.back()) {
-      s.back() = s[0];
+      if (n == 3)
+        st.insert(x);
     }
-    cout << s << endl;
+    if (r < l) {
+      cout << 0 << endl;
+      continue;
+    }
+    ll answer = r - l + 1;
+    for (auto &i : st) {
+      answer -= (i >= l && i <= r);
+    }
+    cout << answer << endl;
   }
   return 0;
 }

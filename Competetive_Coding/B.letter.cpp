@@ -34,9 +34,25 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-     string s;
-     cin >> s;
-     s.push_back('s');
-     cout << s << endl;
+    string s1,s2;
+    getline(cin,s1);
+    getline(cin,s2);
+    map<char,int>mp;
+    for(int i = 0; i<s1.size(); i++){
+        mp[s1[i]]++;
+    }
+    bool ans = true;
+    
+    for(int i = 0; i<s2.size(); i++){
+        if(mp[s2[i]]>0 || s2[i] == ' '){
+            mp[s2[i]]--;
+        }else{
+            ans = false;
+            break;
+        }
+    }
+    if(ans) cout << "YES" << endl;
+    else cout << "NO" << endl;
+
 return 0;
 }

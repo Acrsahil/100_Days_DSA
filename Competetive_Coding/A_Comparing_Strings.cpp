@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,7 +25,6 @@ void _print(long long a) { cerr << a << " "; }
 void _print(char a) { cerr << a << " "; }
 void _print(string a) { cerr << a << " "; }
 void _print(bool a) { cerr << a << " "; }
-
 template <class T, class V> void _print(pair<T, V> p) {
   cerr << "{";
   _print(p.first);
@@ -108,15 +108,34 @@ int main() {
 #ifndef ONLINE_JUDGE
   freopen("Error.txt", "w", stderr);
 #endif
-  test {
-    string s;
-    cin >> s;
-    int n = s.size();
-
-    if (s[0] != s.back()) {
-      s.back() = s[0];
+  string s1;
+  string s2;
+  cin >> s1 >> s2;
+  if (s1.size() != s2.size()) {
+    cout << "NO" << endl;
+  } else {
+    int i = 0;
+    int j = 0;
+    int count = 0;
+    while (i < s1.size() && j < s2.size()) {
+      if (s1[i] != s2[j]) {
+        count++;
+      }
+      i++;
+      j++;
+      if (count > 2) {
+        break;
+      }
     }
-    cout << s << endl;
+
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+
+    if (count == 2 && s1 == s2) {
+      cout << "YES" << endl;
+    } else {
+      cout << "NO" << endl;
+    }
   }
   return 0;
 }

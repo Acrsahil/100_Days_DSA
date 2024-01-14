@@ -34,26 +34,39 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt", "w", stderr);
 #endif
-    string s;
-    cin >> s;
-    string c;
-    cin >> c;
-
-    bool check = true;
-    for(int i = s.size()-1; i>=0 && check; i--){
-    if(c.back() == s[i]){
-        c.pop_back();
-    }else if(c.rfind(s[i]) != -1) {
-        cout << c.rfind(s[i]) << endl;
-        check = false;
-    }
-
-    }
-    if(check && c.empty()){
-        cout << "YES" << endl;
+int n;
+cin >> n;
+int hund = 0;
+int tow = 0;
+for(int i = 0; i<n; i++){
+    int num;
+    cin >> num;
+    if(num == 100){
+        hund ++;
     }else{
-        cout << "NO" << endl;
+        tow++;
     }
-    
+}
+int tot1 = hund*100;
+int tot2 = tow*200;
+int sum = (tot1+tot2);
+debug(hund);
+debug(tow);
+if(sum%200 != 0) {
+    debug("rejected");
+    cout << "NO" << endl;
+}
+else{
+int half = sum /2;
+    bool ans = false;
+    for(int i = 0; i<=tow; i++){
+        if(200 * i <= half && half-200 * i <= hund * 100){
+            ans = true;
+        }
+    }
+    if(ans && n>1) cout << "YES" << endl;
+    else cout << "NO" << endl;
+}
+
 return 0;
 }

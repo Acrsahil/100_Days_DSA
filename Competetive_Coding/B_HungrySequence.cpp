@@ -24,7 +24,6 @@ void _print(long long a) { cerr << a << " "; }
 void _print(char a) { cerr << a << " "; }
 void _print(string a) { cerr << a << " "; }
 void _print(bool a) { cerr << a << " "; }
-
 template <class T, class V> void _print(pair<T, V> p) {
   cerr << "{";
   _print(p.first);
@@ -103,20 +102,18 @@ template <class T, class V> void _print(unordered_map<T, V> v) {
   }
   cerr << "]";
 }
-
 int main() {
 #ifndef ONLINE_JUDGE
   freopen("Error.txt", "w", stderr);
 #endif
-  test {
-    string s;
-    cin >> s;
-    int n = s.size();
-
-    if (s[0] != s.back()) {
-      s.back() = s[0];
-    }
-    cout << s << endl;
+  ll n;
+  cin >> n;
+  ll N = 10e7;
+  int count = 0;
+  for (int i = 2; i <= N && count != n; i++) {
+    cout << i << " ";
+    count++;
   }
+
   return 0;
 }
