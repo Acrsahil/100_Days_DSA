@@ -18,7 +18,6 @@ void _print(long long a) { cerr << a << " "; }
 void _print(char a) { cerr << a << " "; }
 void _print(string a) { cerr << a << " "; }
 void _print(bool a) { cerr << a << " "; }
-
 template <class T, class V> void _print(pair<T, V> p) { cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}"; }
 template <class T> void _print(vector<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
@@ -30,38 +29,44 @@ template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v)
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
 
+void solve(){
+  int n;
+  cin >> n;
+  vector<int>a(n);
+  vector<int>b(n);
+  int suma = 0;
+  int sumb = 0;
+  for(int i = 0; i<n; i++){
+    cin >> a[i] >> b[i];
+    suma += a[i];
+    sumb += b[i];
+  }
+  if(!(suma&1) && ((sumb&1)) || ((suma&1) && !(sumb&1))){
+    cout << -1 << endl;
+    return;
+  }else if(!(suma&1) && !(sumb&1)){
+    cout << 0 << endl;
+    return;
+  }else{
+    for(int i = 0; i<n; i++){
+      if(!(a[i]&1) && ((b[i]&1)) || ((a[i]&1) && !(b[i]&1))){
+        cout << 1 << endl;
+        return;
+      }
+    }
+    cout << -1 << endl; // odd & even element is not present in domino
+  }
+
+
+}
 int main() {
 #ifndef ONLINE_JUDGE
-    freopen("Error.txt", "w", stderr);
+  freopen("input.txt","r",stdin);
+  freopen("output.txt","w",stdout);
+  freopen("Error.txt", "w", stderr);
 #endif
-    test{
-        int n; cin >> n;
-        string s;
-        cin >> s;
-        int one = 0;
-        int zero = 0;
-        bool check = false;
-        for(int i = 0; i<n; i++){
-           if(s[i] == '1'){
-            one++;
-           }
-           if(s[i] == '0'){
-            zero++;
-           }
-        }
-        for(int i = 0; i<n-1; i++){
-           if(s[i] != s[i+1]){
-            check = true;
-           }
-        }
 
-        if(check){
-            cout << "YES" << endl;
-        }else if(one>zero){
-            cout << "NO" << endl;
-        }else{
-            cout << "YES" << endl;
-        }
-    }
-return 0;
+  solve();
+
+  return 0;
 }

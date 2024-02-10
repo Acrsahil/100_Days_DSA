@@ -44,11 +44,8 @@ int main() {
     freopen("output.txt","w",stdout);
     freopen("Error.txt", "w", stderr);
 #endif
-
+//sdf
    solve();
 
     return 0;
 }
-
-
-//asdf

@@ -18,7 +18,6 @@ void _print(long long a) { cerr << a << " "; }
 void _print(char a) { cerr << a << " "; }
 void _print(string a) { cerr << a << " "; }
 void _print(bool a) { cerr << a << " "; }
-
 template <class T, class V> void _print(pair<T, V> p) { cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}"; }
 template <class T> void _print(vector<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
@@ -30,38 +29,34 @@ template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v)
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
 
-int main() {
-#ifndef ONLINE_JUDGE
-    freopen("Error.txt", "w", stderr);
-#endif
-    test{
-        int n; cin >> n;
-        string s;
-        cin >> s;
-        int one = 0;
-        int zero = 0;
-        bool check = false;
-        for(int i = 0; i<n; i++){
-           if(s[i] == '1'){
-            one++;
-           }
-           if(s[i] == '0'){
-            zero++;
-           }
-        }
-        for(int i = 0; i<n-1; i++){
-           if(s[i] != s[i+1]){
-            check = true;
-           }
+void findAndPrintPairs(const vector<int>& numbers) {
+    unordered_map<int, vector<int>> indices;
+
+    for (int i = 0; i < numbers.size(); ++i) {
+        int currentNumber = numbers[i];
+
+        // Check if the current number is already in the map
+        if (indices.find(currentNumber) != indices.end()) {
+            // If yes, print the pair of indices
+            for (int index : indices[currentNumber]) {
+                cout << "Pair found at indices: " << index+1 << " and " << i+1 << endl;
+            }
         }
 
-        if(check){
-            cout << "YES" << endl;
-        }else if(one>zero){
-            cout << "NO" << endl;
-        }else{
-            cout << "YES" << endl;
-        }
+        // Add the current index to the vector in the map
+        indices[currentNumber].push_back(i);
     }
-return 0;
+}
+
+int main() {
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+    freopen("Error.txt", "w", stderr);
+#endif
+
+ vector<int> numbers = {20 ,30 ,10 ,30 ,20 ,10};
+    findAndPrintPairs(numbers);
+
+    return 0;
 }

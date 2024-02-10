@@ -18,7 +18,6 @@ void _print(long long a) { cerr << a << " "; }
 void _print(char a) { cerr << a << " "; }
 void _print(string a) { cerr << a << " "; }
 void _print(bool a) { cerr << a << " "; }
-
 template <class T, class V> void _print(pair<T, V> p) { cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}"; }
 template <class T> void _print(vector<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T> void _print(set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
@@ -30,38 +29,46 @@ template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v)
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
 
+void solve(){
+  int n;
+  cin >> n;
+  vector<int> a(n+1);
+  vector<int> b(n+1);
+  for(int i = 0; i<n; i++){
+    cin >> a[i];
+  }
+  for(int i = 0; i<n; i++){
+    cin >> b[a[i]];
+  }
+
+  sort(a.begin(),a.end());
+  // printing element in a
+  for(auto i : a){
+    if(i == 0){
+      continue;
+    }
+    cout <<i << " ";
+  }
+  cout << endl;
+  for(auto i : b){
+    if(i == 0){
+      continue;
+    }
+    cout <<i << " ";
+  }
+  debug(b);
+  cout << endl;
+}
 int main() {
 #ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
     freopen("Error.txt", "w", stderr);
 #endif
-    test{
-        int n; cin >> n;
-        string s;
-        cin >> s;
-        int one = 0;
-        int zero = 0;
-        bool check = false;
-        for(int i = 0; i<n; i++){
-           if(s[i] == '1'){
-            one++;
-           }
-           if(s[i] == '0'){
-            zero++;
-           }
-        }
-        for(int i = 0; i<n-1; i++){
-           if(s[i] != s[i+1]){
-            check = true;
-           }
-        }
 
-        if(check){
-            cout << "YES" << endl;
-        }else if(one>zero){
-            cout << "NO" << endl;
-        }else{
-            cout << "YES" << endl;
-        }
-    }
-return 0;
+test{
+   solve();
+}
+
+    return 0;
 }
