@@ -1,33 +1,73 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int t;
-    cin>>t;
-    while(t--){
-        int ans = 0;
-        int count = 1,n,k;
-        cin>> n>> k;
-        int arr[n];
-        for(int i = 0; i<n; i++){
-            cin>> arr[i];
-        }
-        if(n==1){
-            cout<< 0 << endl;
-            continue;
-        }
-        sort(arr,arr+n);
+#define F(i, n) for (int i = 0; i < n; i++)
+#define vi vector<int>
+#define ln long long int
+#define test int t; cin >> t; while (t--)
+#define ll long long
+#define vi  vector<int>
+#define py cout << "YES" << endl
+#define pn cout << "NO" << endl
+#ifndef ONLINE_JUDGE
+#define debug(x) cerr << #x << " -> "; _print(x); cerr << endl
+#else
+#define debug(x)
+#endif
 
-        for(int i = 0; i<n-1; i++){ 
-            if(arr[i+1]-arr[i]<=k){ // count of valid element
-                count++;
-            }else{
-                count = 1; // reset count because element is greater than k
-            }
-            ans = max(ans,count);
-        }
-        cout<< n-ans << endl;
+void _print(int a) { cerr << a << " "; }
+void _print(long long a) { cerr << a << " "; }
+void _print(char a) { cerr << a << " "; }
+void _print(string a) { cerr << a << " "; }
+void _print(bool a) { cerr << a << " "; }
+template <class T, class V> void _print(pair<T, V> p) { cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}"; }
+template <class T> void _print(vector<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
+template <class T> void _print(set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
+template <class T> void _print(multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
+template <class T, class V> void _print(map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
+template <class T> void _print(pair<T, T> p) { cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}"; }
+template <class T, class V> void _print(multimap<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
+template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
+template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
+template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
+
+void solve(){
+  int n,k; cin >> n >> k;
+
+  vector<int> v(n);
+
+  for(int i = 0; i<n; i++){
+    cin >> v[i];
+  }
+
+  if(n == 1){
+    cout << 0 << endl;
+    return;
+  }
+  sort(v.begin(),v.end());
+
+  int cnt = 1;
+  int maxi = INT_MIN;
+  for(int i = 0; i<n-1; i++){
+    if((v[i+1] - v[i])<=k){
+      cnt++;
+    }else{
+      cnt = 1;
     }
+     maxi = max(cnt,maxi);
+  }
+  cout << n-maxi << endl;
+}
+int main() {
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+    freopen("Error.txt", "w", stderr);
+#endif
+
+test{
+   solve();
+}
+
     return 0;
 }

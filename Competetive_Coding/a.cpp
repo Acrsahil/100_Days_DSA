@@ -30,6 +30,12 @@ template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
 
 void solve(){
+  ll x,y;
+  cin >> x >>y;
+
+  if(x==1 && y>1) cout << "NO" << endl;
+  else if(x<=3 && y>3) cout << "NO" << endl;
+  else cout << "YES" << endl;
 }
 int main() {
 #ifndef ONLINE_JUDGE

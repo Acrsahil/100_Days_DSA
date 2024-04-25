@@ -64,23 +64,6 @@ Node * merge(Node * h1, Node * h2) {
     return dummy->next; // Return the next node of the dummy node, which is the head of the merged list
 }
 
-Node * remdup(Node * head){
-  if(head == NULL || head -> next == NULL){
-    return head;
-  }
-  Node * temp = head;
-  Node * nextnext;
-  while(temp != NULL && temp -> next != NULL){
-    if(temp -> data == temp->next->data){
-      nextnext = temp->next->next;
-      delete temp->next;
-      temp -> next = nextnext;
-    }else{
-      temp = temp -> next;
-    }
-  }
-  return temp;
-}
 
 
 Node * mergesort(Node * head){
@@ -107,7 +90,7 @@ int main()
   h1 = insertAthead(h1, 66);
   h1 = insertAthead(h1, 9);
   h1 = insertAthead(h1, 99);
-  h1 = insertAthead(h1, 23);
+  h1 = insertAthead(h1, 2);
 
   cout << endl << "first list" << endl;
   LinkListTraversal(h1);
@@ -117,8 +100,8 @@ int main()
   h2 = NULL;
 
   h2 = insertAthead( h2,28);
-  h2 = insertAthead( h2,2);
-  h2 = insertAthead( h2,5);
+  h2 = insertAthead( h2,8);
+  h2 = insertAthead( h2,1);
   h2 = insertAthead( h2,8);
   h2 = insertAthead( h2,2);
 
@@ -127,9 +110,8 @@ int main()
 
   Node * combine = new Node();
   combine = merge(h1,h2);
-  Node * sortedlist = mergesort(combine);
+  Node * sortedlist = mergesort(h1);
   cout << "\n"<< "sorted list " << endl;
-  remdup(sortedlist);
 
   LinkListTraversal(sortedlist);
   delete h1;

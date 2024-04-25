@@ -6,9 +6,10 @@ int binaryexponation(int x,int y){
     if(y==0) return 1;
     int res = binaryexponation(x,y/2);
     if(y&1){
-       return (x * ((res *1LL* res)%M))%M; 
+       return (x * ((res *1LL* res)%M))%M;
     }else{
         return (res * 1LL *res) %M;
+    print()
     }
 }
 int binaryite(int a,int b){
