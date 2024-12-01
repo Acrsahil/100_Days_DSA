@@ -47,6 +47,6 @@ int main() {
     }
     ans = max(ans, 2 * (x - a.back()));
     cout << ans << "\n";
-   } 
+   }
 return 0;
 }

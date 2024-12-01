@@ -34,7 +34,21 @@ template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
 
 void solve(){
+  int n,k; cin >> n >>k;
+  vector<int>v(n);
+  for(int i = 0; i<n; i++){
+    cin >> v[i];
+    v[i] %= k;
+  }
+  sort(all(v));
+  debug(v);
+  int diff = v[n-1]-v[0];
 
+  for(int i = 0; i<n-1; i++){
+    int curr = v[i] - v[i+1] +k;
+    diff = min(diff,curr);
+  }
+  cout << diff << endl;
 }
 int main() {
 #ifndef ONLINE_JUDGE
@@ -49,4 +63,3 @@ test{
 
     return 0;
 }
-

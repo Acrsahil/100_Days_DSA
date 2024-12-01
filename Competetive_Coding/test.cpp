@@ -32,39 +32,15 @@ template <class T> void _print(unordered_set<T> v) { cerr << "[ "; for (T i : v)
 template <class T> void _print(unordered_multiset<T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]"; }
 template <class T, class V> void _print(unordered_map<T, V> v) { cerr << "[ "; for (auto i : v) { _print(i); cerr << " "; } cerr << "]"; }
 
-int count(char ch, string s){
-  int cnt = 0;
-  for(int i = 0; i<s.size(); i++){
-    if(s[i] == '1'){
-      cnt++;
-    }
-  }
-  return cnt;
-}
-
-int maxScore(string s) {
-  int n = s.size();
-  int zero = 0;
-  int one = count('1',s);
-  int res = 0;
-  for(int i = 0; i<n-1; i++){
-    if(s[i] == '0'){
-      zero++;
-    }else{
-      one--;
-    }
-    res = max(res,one+zero);
-  }
-  return res;
-}
 int main() {
 #ifndef ONLINE_JUDGE
   freopen("input.txt","r",stdin);
   freopen("output.txt","w",stdout);
   freopen("Error.txt", "w", stderr);
 #endif
-  string s; cin >> s;
-  cout << maxScore(s) << endl;
+
+
+
 
   return 0;
 }
